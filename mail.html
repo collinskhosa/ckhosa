@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    
+    <!-- Compressed JavaScript -->    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Send mail</title>
+    </head>
+    <body>
+        <div class="grid-container narrow">
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 cell">
+            <h1>Send email</h1>
+            <form> 
+                <label for="">Name: <br> <input id="fullName" type="text" id="name" name="name" ></label> <br>
+                <label for="">Residency <br><input id="residency" type="text" id="location" name="location"></label>
+                <a class="button" id="submitBtn">Speak out</a>
+            </form>
+            <h3>Message</h3>
+            <p id="message"></p>
+            <hr>
+            <a href="https://docs.google.com/document/u/1/d/14E9QZNNX8BWqM7cJ_K3RsHGAclWUiCGRgg7k5li5vdM/mobilebasic">Original Template</a>
+        </div>
+        </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script>
+
+            $("#message").text(`My name is ______ and I am a resident of _____. I'm emailing today on behalf of the Collins Khosa case. I'm calling for the prosecution of the SANDF soldiers and Johannesburg Metro Police officers who killed Collins Khosa to the fullest extent of the law. The outcome of the inquiry made by the board contradicts the court ruling in favour of Khosa's family and the post mortem report stating blunt force as the cause of death. Even the alleged provocation by Khosa does not justify the conduct of the perpetrators against him. The approach that the soldiers and police officers chose to take resulted in murder. This crime should not be pardoned or ignored because it was committed by the so-called officers and enforcers of the law. Black lives matter.`);
+
+            $("#fullName").keyup( function () {
+                console.log("hi");
+                fullName = document.getElementById("fullName").value;
+                residency = document.getElementById("residency").value;
+                message = `My name is ${fullName} and I am a resident of ${residency}. I'm emailing today on behalf of the Collins Khosa case. I'm calling for the prosecution of the SANDF soldiers and Johannesburg Metro Police officers who killed Collins Khosa to the fullest extent of the law. The outcome of the inquiry made by the board contradicts the court ruling in favour of Khosa's family and the post mortem report stating blunt force as the cause of death. Even the alleged provocation by Khosa does not justify the conduct of the perpetrators against him. The approach that the soldiers and police officers chose to take resulted in murder. This crime should not be pardoned or ignored because it was committed by the so-called officers and enforcers of the law. Black lives matter.`;
+                document.getElementById("message").innerText = message;
+            });
+
+            $("#residency").keyup( function () {
+                console.log("hi");
+                fullName = document.getElementById("fullName").value;
+                residency = document.getElementById("residency").value;
+                message = `My name is ${fullName} and I am a resident of ${residency}. I'm emailing today on behalf of the Collins Khosa case. I'm calling for the prosecution of the SANDF soldiers and Johannesburg Metro Police officers who killed Collins Khosa to the fullest extent of the law. The outcome of the inquiry made by the board contradicts the court ruling in favour of Khosa's family and the post mortem report stating blunt force as the cause of death. Even the alleged provocation by Khosa does not justify the conduct of the perpetrators against him. The approach that the soldiers and police officers chose to take resulted in murder. This crime should not be pardoned or ignored because it was committed by the so-called officers and enforcers of the law. Black lives matter.`;
+                document.getElementById("message").innerText = message;
+            });
+
+
+            $("#submitBtn").click(function() {
+                var a = document.createElement('a');
+                var message = $("#message").text();
+                a.href = `mailto:complaints@ipid.gov.za;intake@milombud.org?subject=Case for Collins Khosa&body=${message}`;
+                a.click();
+            });
+        </script>
+</body>
+</html>
